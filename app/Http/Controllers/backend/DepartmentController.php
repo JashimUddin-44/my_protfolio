@@ -26,7 +26,8 @@ class DepartmentController extends Controller
             'department_name' => $request->department_name,
 
         ]);
-        return redirect()->route('dptList.show')->with('success','Department Created Successfully');
+        
+        return redirect()->route('dptList.show')->with('success','Department Created Succesfully');;
         
     }
 

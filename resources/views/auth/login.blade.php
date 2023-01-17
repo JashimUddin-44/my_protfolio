@@ -5,7 +5,7 @@
 
         <div class="widget-container col-md-4 m-auto">
             <div class="card bg-white">
-                <div class="card-header"><h1>Login</h1></div>
+                <div class="card-header"><h1>Login to your account</h1></div>
                 <div class="card-body pt0 rounded-bottom ps" id="open-projects-container" style="height: 330px; position: relative;">
                     @if (Session::has('error'))
                         <div class="alert alert-danger">{{ session::get('error')}}</div>

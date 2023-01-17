@@ -103,96 +103,13 @@
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6 search-course-right section-gap">
-							@if(Session::has('success'))
-							<p class="alert alert-primary">{{Session::get('success')}}</p>
-							@endif
-							<form class="form-wrap" action="{{route('Admission.student')}}" method="post" enctype="multipart/form-data">
-								@csrf
+							
+							<form class="form-wrap" action="" method="post" enctype="multipart/form-data">
+								
 							<h3 class="text-white pb-20 text-center mb-30">Students Admission From Here</h3>	
-							   <div class="form-group">
-									<label for="name"><h3 class="text-white">Student Name</h3></label>
-									<input type="text" name="student_name" class="form-control" placeholder="Enter Your Name">
-									<div>
-										@error('student_name')
-										 <strong class="text-danger">{{$message}}</strong>
-										@enderror
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="father_name"><h3 class="text-white">father Name</h3></label>
-									<input type="text" name="father_name" class="form-control" placeholder="Enter Your Father Name">
-									<div>
-										@error('father_name')
-										 <strong class="text-danger">{{$message}}</strong>
-										@enderror
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="mother_name"><h3 class="text-white">Mother Name</h3></label>
-									<input type="text" name="mother_name" class="form-control" placeholder="Enter Your Mother Name">
-									<div>
-										@error('mother_name')
-										 <strong class="text-danger">{{$message}}</strong>
-										@enderror
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="mobaile_number"><h3 class="text-white">Mobaile</h3></label>
-									<input type="number" name="mobaile_number" class="form-control" placeholder="Enter Your Mobaile Number">
-									<div>
-										@error('mobaile_number')
-										 <strong class="text-danger">{{$message}}</strong>
-										@enderror
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="email"><h3 class="text-white">Student Email Address</h3></label>
-									<input type="email" name="email" class="form-control" placeholder="Enter Your email">
-									<div>
-										@error('email')
-										 <strong class="text-danger">{{$message}}</strong>
-										@enderror
-									</div>
-								</div>
-								<div class="form-select" id="service-select">
-									<label for="clist_id"><h3 class="text-white">Select Class</h3></label>
-									<select name="clist_id" class="form-control" id="clist_id">
-										<option>Select Your Class</option>
-										@foreach($class as $data)
-										<option value="{{$data->id}}">{{$data->class_name}}</option>
-										@endforeach
-									</select>
-									<div>
-										@error('clist_id')
-										 <strong class="text-danger">{{$message}}</strong>
-										@enderror
-									</div>
-								</div>			
-								<div class="form-select" id="service-select">
-									<label for="department_id"><h3 class="text-white"> Select Department</h3></label>
-									<select name="department_id" class="form-control" id="department_id">
-										<option>Choose Department<option>
-										@foreach($department as $values)
-										<option value="{{$values->id}}">{{$values->department_name}}</option>
-										@endforeach	
-									</select>
-									<div>
-										@error('department_id')
-										 <strong class="text-danger">{{$message}}</strong>
-										@enderror
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="image"><h3 class="text-white">Student Image</h3></label>
-									<input type="file" name="image" id="image" class="form-control">
-									<div>
-										@error('image')
-										 <strong class="text-danger">{{$message}}</strong>
-										@enderror
-									</div>
-								</div>			
+							   
 														
-								<button type="submit" class="primary-btn text-uppercase">Submit</button>
+								<button type="button" class="primary-btn text-uppercase">Submit</button>
 							</form>
 						</div>
 					</div>

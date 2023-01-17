@@ -33,7 +33,8 @@ class FrontrandController extends Controller
     }
 
     public function gellery(){
-        return view('frontrand.page.gellery');
+        $students = Student::all();
+        return view('frontrand.page.gellery',compact('students'));
     }
 
     public function notice(){
@@ -43,6 +44,15 @@ class FrontrandController extends Controller
     public function result(){
         return view('frontrand.page.result');
     }
+
+    public function search(Request $request){
+        $search_key=$request->search_key;
+        $students = Student::where('student_name','LIKE','%'.$search_key.'%')->get();
+         return view('frontrand.page.search',compact('students'));
+
+    }
+
+    
 
     
 }

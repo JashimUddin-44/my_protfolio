@@ -16,16 +16,56 @@ use App\Http\Controllers\backend\AttendanceController;
 use App\Http\Controllers\backend\Student_paymentController;
 use App\Http\Controllers\auth\LoginController;
 
+
 //End backend controller
 
 //<--start frontrand controller-->
 
 use App\Http\Controllers\frontrand\FrontrandController;
-use App\Http\Controllers\frontrand\AdmissionController;
+use App\Http\Controllers\frontrand\UserLoginController;
+
+
+
+
+
+//<--starting here from frontrand controller-->
+ 
+Route::get('/search',[FrontrandController::class,'search'])->name('search');
+
+//UserLoginController
+      Route::post('/user-registration',[UserLoginController::class,'store'])->name('register.store');      
+      Route::post('/user-login',[UserLoginController::class,'login'])->name('user.login');      
+      Route::get('/user-logout',[UserLoginController::class,'logout'])->name('user.logout');
+
+      //FrontrandController
+
+
+      Route::get('/',[FrontrandController::class,'home'])->name('content.show');
+      Route::get('about-page',[FrontrandController::class,'about'])->name('about.show');
+      Route::get('contact-page',[FrontrandController::class,'contact'])->name('contact.show');
+      Route::get('gellery-page',[FrontrandController::class,'gellery'])->name('gellery.show');
+      Route::get('notice-page',[FrontrandController::class,'notice'])->name('notice.show');
+      Route::get('result-page',[FrontrandController::class,'result'])->name('result.show');
+      Route::get('student-fee',[FrontrandController::class,'fee'])->name('student.fee');
+      
+       
+      
+      
+           //AdmissionController
+      
+      
+      
+       
 
 
 //<--End frontrandcontroller-->
 
+
+       //LoginController
+
+      
+Route::get('/login',[LoginController::class,'login'])->name('login');
+Route::post('/login-store',[LoginController::class,'store'])->name('login.admin');
  
 Route::group(['middleware'=>['auth','isAdmin']],function(){
 Route::get('/controll_panel',[DeshboardController::class,'admin'])->name('deshboard');
@@ -155,9 +195,9 @@ Route::get('section-delete/{id}',[SectionController::class,'destroy'])->name('se
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 
@@ -167,15 +207,11 @@ Route::get('/', function () {
 
 
 
-      //LoginController
-
       
-   Route::get('/login',[LoginController::class,'login'])->name('login');
-   Route::post('/login-store',[LoginController::class,'store'])->name('login.admin');
 
 
-   Route::get('/register',[LoginController::class,'register'])->name('register');
-   Route::post('/register-store',[LoginController::class,'stock'])->name('user.register');
+   //Route::get('/register',[LoginController::class,'register'])->name('register');
+   //Route::post('/register-store',[LoginController::class,'stock'])->name('user.register');
    
 
 
@@ -183,34 +219,6 @@ Route::get('/', function () {
 
 //<--There are now backend controller end-->
 
-
-
-//<--starting here from frontrand controller-->
-
-      //FrontrandController
-
-
-Route::get('home-page',[FrontrandController::class,'home'])->name('content.show');
-Route::get('about-page',[FrontrandController::class,'about'])->name('about.show');
-Route::get('contact-page',[FrontrandController::class,'contact'])->name('contact.show');
-Route::get('gellery-page',[FrontrandController::class,'gellery'])->name('gellery.show');
-Route::get('notice-page',[FrontrandController::class,'notice'])->name('notice.show');
-Route::get('result-page',[FrontrandController::class,'result'])->name('result.show');
-Route::get('student-fee',[FrontrandController::class,'fee'])->name('student.fee');
-Route::get('/logout',[LoginController::class,'logout'])->name('logout');
- 
-
-
-     //AdmissionController
-
-
-//Route::resource('admission', AdmissionController::class);
-
-Route::post('student-admission',[AdmissionController::class,'store'])->name('Admission.student');     
-Route::get('admission-show',[AdmissionController::class,'view'])->name('Admission.view');
-Route::get('/admission-edit/{id}',[AdmissionController::class,'edit'])->name('edit.data');
-Route::put('/admission-update/{id}',[AdmissionController::class,'update'])->name('Admission.update');
-Route::get('/admission-delete/{id}',[AdmissionController::class,'destroy'])->name('delete.data');
 
 
      

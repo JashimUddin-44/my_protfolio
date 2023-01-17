@@ -3,9 +3,13 @@
 	<head>
 		@include('frontrand.partials.head')
 	</head>
-		<body>	
+		<body>
+		
 		  <header id="header" id="home">
-		     @include('frontrand.partials.header')
+		  @if(request()->route()->getName()=='content.show')
+		  @include('frontrand.partials.header')
+          @endif
+		     
 		  </header><!-- #header -->
                 
 			<!-- start banner Area -->
@@ -32,7 +36,11 @@
     		<script src="{{ asset('frontrand/js/jquery.tabs.min.js')}}"></script>						
 			<script src="{{ asset('frontrand/js/jquery.nice-select.min.js')}}"></script>	
 			<script src="{{ asset('frontrand/js/owl.carousel.min.js')}}"></script>									
-			<script src="{{ asset('frontrand/js/mail-script.js')}}"></script>	
-			<script src="{{ asset('frontrand/js/main.js')}}"></script>	
+			<script src="{{ asset('frontrand/js/mail-script.js')}}"></script>
+			<x:notify-messages />	
+			<script src="{{ asset('frontrand/js/main.js')}}"></script>
+			@notifyJs
+		
+				
 		</body>
 	</html>

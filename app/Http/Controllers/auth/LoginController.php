@@ -12,9 +12,7 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function register(){
-        return view('auth.register');
-    }
+    
 
     public function store(Request $request){
         //dd($request->all());
@@ -24,41 +22,40 @@ class LoginController extends Controller
             return redirect()->route('deshboard');
         }
         else{
-            return back()->with('login')->withError('Oh no!You hit wrong data,Please Try Again.');
+            return back();
         }
         
     }
     public function logout(){
         auth()->logout();
-        return redirect('login');
+        return redirect('/');
     }
 
-    public function stock(Request $request){
-        //dd($request->all());
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
+    // public function stock(Request $request){
+    //     //dd($request->all());
+    //     $request->validate([
+    //         'name' => 'required',
+    //         'email' => 'required',
+    //         'password' => 'required',
             
-        ]);
+    //     ]);
         
-        //user save code
+    //     //user save code
 
-        User::create([
-          'name' => $request->name,
-          'email' => $request->email,
-          'password' =>bcrypt($request->password),
+    //     User::create([
+    //       'name' => $request->name,
+    //       'email' => $request->email,
+    //       'password' =>bcrypt($request->password),
           
-        ]);
-        //user login code
-        if(Auth::attempt($request->only('email','password'))){
-            return redirect('home-page');
+    //     ]);
+    //     //user login code
+    //     if(Auth::attempt($request->only('email','password'))){
+    //         return redirect('/');
         
-    }
+    // }
     // public function logout(){
     //     \Session::flush();
     //     \Auth::logout();
     //     return redirect('');
     // }
-}
 }

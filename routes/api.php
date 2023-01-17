@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::get('/getStudentList',[\App\Http\Controllers\Api\StudentController::class,'studentget']);
+Route::post('/department/create',[\App\Http\Controllers\Api\StudentController::class,'departmentCreate']);
+Route::get('/getTeacherList',[\App\Http\Controllers\Api\StudentController::class,'teacherget']);

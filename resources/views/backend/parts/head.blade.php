@@ -24,6 +24,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('backend/assets/css/style.css')}}" rel="stylesheet">
+ 
 
   <!-- =======================================================
   * Template Name: NiceAdmin - v2.4.1
